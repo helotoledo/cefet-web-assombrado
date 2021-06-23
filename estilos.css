@@ -78,8 +78,6 @@ header a {
 }
 
 
-
-
 /* --- Principal >> Postagens principais --- */
 #posts-principais {
   padding-top: 1.5em;
@@ -95,10 +93,23 @@ header a {
   margin-left: 2.5%;
   margin-right: 2.5%;
   display: inline-block;
+  position: relative;
 }
 
 #posts-principais .post .titulo {
   text-shadow: 1px 1px black;
+  position: absolute;
+  z-index: 5;
+  top: 20px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  opacity: 0;
+}
+
+#posts-principais .post .titulo:hover {
+  opacity: 1;
+  top: 6px;
+  transition: all 300ms ease;
 }
 
 #posts-principais .post img {
@@ -109,7 +120,13 @@ header a {
   margin-bottom: .5em;
 }
 
-
+.novidade::before {
+  content: "Novidade!";
+  padding: 2px 3px;
+  display: inline-block;
+  background: green;
+  border-radius: 3px;
+}
 
 
 /* --- Principal >> Últimas postagens --- */
@@ -140,8 +157,6 @@ header a {
 }
 
 
-
-
 /* --- Principal >> Nuvem de tags --- */
 #tags {
   float: right;
@@ -152,6 +167,8 @@ header a {
   background-size: 300px;
   box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
   text-align: center;
+  position: sticky;
+  top: 0;
 }
 
 #tags h1 {
@@ -179,8 +196,13 @@ header a {
   font-size: 150%;
 }
 
-
-
+.tag-1:active,
+.tag-2:active,
+.tag-3:active {
+  position: relative;
+  left: 2px;
+  top: 2px;
+}
 
 
 /* --- Rodapé --- */
@@ -194,9 +216,19 @@ footer .logo-rodape {
   margin-right: 2em;
 }
 
+#inscreva-se {
+  display: inline-block;
+}
 
+.boo {
+  width: 40px;
+  opacity: 0.4;
+  transform: scaleX(-1);
+}
 
-
+.boo:hover {
+  opacity: 1;
+}
 
 /* --- Vídeo --- */
 .backdrop {
